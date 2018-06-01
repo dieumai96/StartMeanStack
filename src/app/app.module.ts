@@ -14,7 +14,8 @@ import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { UserService } from './services/user.service';
+import { HttpClientModule } from '@angular/common/http';
 const APP_CONTAINERS = [
   DefaultLayoutComponent
 ];
@@ -25,7 +26,7 @@ import {
   AppHeaderModule,
   AppFooterModule,
   AppSidebarModule,
- 
+
 } from '@coreui/angular'
 
 // Import routing module
@@ -47,6 +48,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     AppSidebarModule,
     PerfectScrollbarModule,
     ReactiveFormsModule,
+    HttpClientModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule
@@ -62,7 +64,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
   providers: [{
     provide: LocationStrategy,
     useClass: HashLocationStrategy
-  }],
-  bootstrap: [ AppComponent ]
+  }, UserService],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
