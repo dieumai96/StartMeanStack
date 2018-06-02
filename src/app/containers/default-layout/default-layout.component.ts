@@ -28,7 +28,7 @@ export class DefaultLayoutComponent implements OnInit {
   ngOnInit() {
     this._userService.getProfileLogin().subscribe(data => {
       this.username = this.getName(data);
-      console.log(this.username);
+    
     });
   }
   getName(data) {

@@ -1,6 +1,6 @@
 // Angular
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { CardsComponent } from './cards.component';
@@ -46,7 +46,7 @@ import { TooltipsComponent } from './tooltips.component';
 // Components Routing
 import { BaseRoutingModule } from './base-routing.module';
 import { ChangepasswordComponent } from './../changepassword/changepassword.component';
-
+import { ChangePasswordService } from './../../services/change-password.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -54,6 +54,7 @@ import { ChangepasswordComponent } from './../changepassword/changepassword.comp
     BaseRoutingModule,
     BsDropdownModule.forRoot(),
     TabsModule,
+    ReactiveFormsModule,
     CarouselModule.forRoot(),
     CollapseModule.forRoot(),
     PaginationModule.forRoot(),
@@ -74,6 +75,7 @@ import { ChangepasswordComponent } from './../changepassword/changepassword.comp
     ProgressComponent,
     TooltipsComponent,
     ChangepasswordComponent
-  ]
+  ],
+  providers : [ChangePasswordService]
 })
 export class BaseModule { }
