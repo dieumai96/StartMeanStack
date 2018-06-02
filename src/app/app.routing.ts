@@ -7,6 +7,7 @@ import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { AuthService } from './services/auth.service';
 import { AuthLoginService } from './services/auth-login.service';
+
 export const routes: Routes = [
   {
     path: '',
@@ -30,7 +31,7 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-    canActivate : [AuthLoginService],
+    canActivate: [AuthLoginService],
     data: {
       title: 'Login Page'
     }
@@ -42,7 +43,7 @@ export const routes: Routes = [
       title: 'Register Page'
     }
   },
-
+  
   {
     path: '',
     component: DefaultLayoutComponent,
@@ -52,7 +53,7 @@ export const routes: Routes = [
     children: [
       {
         path: 'base',
-        canActivate : [AuthService],
+        canActivate: [AuthService],
         loadChildren: './views/base/base.module#BaseModule'
       },
       {

@@ -9,9 +9,10 @@ import { TabsComponent } from './tabs.component';
 import { CarouselsComponent } from './carousels.component';
 import { CollapsesComponent } from './collapses.component';
 import { PaginationsComponent } from './paginations.component';
-import {PopoversComponent} from './popovers.component';
-import {ProgressComponent} from './progress.component';
-import {TooltipsComponent} from './tooltips.component';
+import { PopoversComponent } from './popovers.component';
+import { ProgressComponent } from './progress.component';
+import { TooltipsComponent } from './tooltips.component';
+import { ChangepasswordComponent } from './../changepassword/changepassword.component';
 
 const routes: Routes = [
   {
@@ -96,7 +97,17 @@ const routes: Routes = [
         data: {
           title: 'Tooltips'
         }
-      }
+
+      },
+      {
+        path: 'change-password',
+        component: ChangepasswordComponent,
+        data: {
+          title: 'Change-Password'
+        }
+
+      },
+      
     ]
   }
 ];
@@ -105,4 +116,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class BaseRoutingModule {}
+export class BaseRoutingModule { }
