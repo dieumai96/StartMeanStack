@@ -8,7 +8,7 @@ import { UserService } from '../../services/user.service';
   templateUrl: 'dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
-  public user : Object;
+  public username : Object;
   constructor(
     private _userService: UserService,
     private _router : Router
@@ -385,7 +385,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     // generate random values for mainChart
     this._userService.getProfileLogin().subscribe(data=>{
-      this.user = data;
+       this.username = data;
     },error=>{
         console.log(error);
     })
@@ -396,6 +396,5 @@ export class DashboardComponent implements OnInit {
       this.mainChartData3.push(65);
     }
   }
-
   radioModel: string = 'Month';
 }

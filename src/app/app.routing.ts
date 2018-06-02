@@ -5,7 +5,8 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
-
+import { AuthService } from './services/auth.service';
+import { AuthLoginService } from './services/auth-login.service';
 export const routes: Routes = [
   {
     path: '',
@@ -29,6 +30,7 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+    canActivate : [AuthLoginService],
     data: {
       title: 'Login Page'
     }
@@ -50,10 +52,12 @@ export const routes: Routes = [
     children: [
       {
         path: 'base',
+        canActivate : [AuthService],
         loadChildren: './views/base/base.module#BaseModule'
       },
       {
         path: 'dashboard',
+        canActivate: [AuthService],
         loadChildren: './views/dashboard/dashboard.module#DashboardModule'
       },
     ]

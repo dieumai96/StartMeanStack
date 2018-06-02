@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { tokenNotExpired } from 'angular2-jwt';
 @Injectable({
   providedIn: 'root'
 })
@@ -46,5 +47,7 @@ export class UserService {
   }
   // check if have user loggined
   isHaveUserLogin() {
+    return tokenNotExpired();
   }
+ 
 }

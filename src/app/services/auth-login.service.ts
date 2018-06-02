@@ -5,24 +5,16 @@ import { UserService } from './user.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService implements CanActivate{
-  public checkLevel : boolean  = false; 
+export class AuthLoginService implements CanActivate{
+
   constructor(
     private _router : Router,
     private _userService : UserService,
   ) { }
   canActivate(){
     if(this._userService.isHaveUserLogin()){
-        return true;
-    }else{
-      this._router.navigate(['/login']);
-      return false;
+        this._router.navigate(['/dashboard']);
     }
-  }
-  checkLevelForCanActive(data){
-      if(data.user.level<3){
-        return true;
-      }
-      return false;
+    return true;
   }
 }
