@@ -2,13 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
+import { UserService } from '../../services/user.service';
 
 @Component({
   templateUrl: 'dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
+  public user : Object;
+  constructor(
+    private _userService: UserService,
+    private _router : Router
+  ) {
 
-  // lineChart1
+  }
   public lineChart1Data: Array<any> = [
     {
       data: [65, 59, 84, 84, 51, 55, 40],
@@ -240,7 +246,7 @@ export class DashboardComponent implements OnInit {
       mode: 'index',
       position: 'nearest',
       callbacks: {
-        labelColor: function(tooltipItem, chart) {
+        labelColor: function (tooltipItem, chart) {
           return { backgroundColor: chart.data.datasets[tooltipItem.datasetIndex].borderColor }
         }
       }
@@ -253,7 +259,7 @@ export class DashboardComponent implements OnInit {
           drawOnChartArea: false,
         },
         ticks: {
-          callback: function(value: any) {
+          callback: function (value: any) {
             return value.charAt(0);
           }
         }
@@ -378,6 +384,12 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     // generate random values for mainChart
+    this._userService.getProfileLogin().subscribe(data=>{
+      this.user = data;
+    },error=>{
+        console.log(error);
+    })
+
     for (let i = 0; i <= this.mainChartElements; i++) {
       this.mainChartData1.push(this.random(50, 200));
       this.mainChartData2.push(this.random(80, 100));

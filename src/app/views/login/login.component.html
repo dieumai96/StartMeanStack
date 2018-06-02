@@ -9,8 +9,8 @@
                 <div class="card-body">
                   <h1>Login</h1>
                   <p class="text-muted">Sign In to your account</p>
-                  <div class="alert alert-danger">
-                      <strong>Warning</strong> Indicates a successful or positive action.
+                  <div class="alert alert-danger" *ngIf="flagMessage">
+                      <strong>Warning</strong> {{errorMessage}}
                     </div>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
