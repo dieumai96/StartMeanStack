@@ -16,7 +16,7 @@ export class ChangePasswordService {
   ) { }
   findUserLogin() {
     this._userService.getProfileLogin().subscribe(data => {
-      return this.setId(data);
+       this.setId(data);
     });
   }
   setId(data) {
@@ -24,10 +24,10 @@ export class ChangePasswordService {
     return this._id;
   }
   onChangePass(body: any) {
-   return this._http.put('http://localhost:3001/workplace-admin/' + this.findUserLogin(), body, {
+   return this._http.put('http://localhost:3001/workplace-admin/'+this._id, body, {
       observe: 'body',
       withCredentials: true,
-      headers: new HttpHeaders().set('Content-type', 'application/json'),
+      headers: new HttpHeaders().set('Content-Type', 'application/json'),
     })
   }
 
