@@ -4,4 +4,5 @@ export class User {
     email : String ;
     level : Number;
     status : Number;
+    created_at : Date;
 }

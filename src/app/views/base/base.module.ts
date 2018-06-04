@@ -47,6 +47,7 @@ import { TooltipsComponent } from './tooltips.component';
 import { BaseRoutingModule } from './base-routing.module';
 import { ChangepasswordComponent } from './../changepassword/changepassword.component';
 import { ChangePasswordService } from './../../services/change-password.service';
+import { InfomationComponent } from './infomation/infomation.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -74,7 +75,8 @@ import { ChangePasswordService } from './../../services/change-password.service'
     PopoversComponent,
     ProgressComponent,
     TooltipsComponent,
-    ChangepasswordComponent
+    ChangepasswordComponent,
+    InfomationComponent
   ],
   providers : [ChangePasswordService]
 })

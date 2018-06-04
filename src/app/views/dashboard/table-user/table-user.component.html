@@ -12,7 +12,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of user_lists">
+    <tr *ngFor="let user of user_lists" (click)="getInfoOne()">
       <td class="text-center">
         <div class="avatar">
           <img src="assets/img/avatars/1.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
@@ -22,7 +22,7 @@
       <td>
         <div>{{user.username}}</div>
         <div class="small text-muted">
-          <span>New</span> | Registered: Jan 1, 2015
+          <span>New</span> | Register {{user.created_at | date}}
         </div>
 
       </td>

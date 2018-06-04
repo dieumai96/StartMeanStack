@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ListUserService } from '../../../services/list-user.service';
 import { Observable } from 'rxjs';
 import { User } from './../../../models/user';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-table-user',
   templateUrl: './table-user.component.html',
@@ -11,6 +12,7 @@ export class TableUserComponent implements OnInit {
   public user_lists: User[] = [];
   constructor(
     private _listuserServie: ListUserService,
+    private _router : Router,
   ) { }
 
   ngOnInit() {
@@ -18,12 +20,16 @@ export class TableUserComponent implements OnInit {
   }
   getAllUser() {
     this._listuserServie.getAllUser().subscribe(data => {
-        this.user_lists = this.getInfo(data);
+        this.user_lists = this.getInfoAll(data);
+        console.log(this.user_lists);
     }, err => {
       console.log(err);
     })
   }
-  getInfo(data) {
+  getInfoAll(data) {
      return data.response.user_lists;
+  }
+  getInfoOne(){
+      this._router.navigate(['/base/infomation']);
   }
 }
