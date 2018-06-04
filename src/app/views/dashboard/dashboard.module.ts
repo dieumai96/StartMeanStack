@@ -7,6 +7,8 @@ import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { TableUserComponent } from './table-user/table-user.component';
 import { StatisticalComponent } from './statistical/statistical.component';
+import { ListUserService } from './../../services/list-user.service';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   imports: [
@@ -14,8 +16,10 @@ import { StatisticalComponent } from './statistical/statistical.component';
     DashboardRoutingModule,
     ChartsModule,
     BsDropdownModule,
+    CommonModule,
     ButtonsModule.forRoot()
   ],
-  declarations: [ DashboardComponent, TableUserComponent, StatisticalComponent , ]
+  declarations: [DashboardComponent, TableUserComponent, StatisticalComponent,],
+  providers : [ListUserService]
 })
 export class DashboardModule { }
