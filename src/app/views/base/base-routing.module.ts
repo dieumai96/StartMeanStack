@@ -13,7 +13,7 @@ import { PopoversComponent } from './popovers.component';
 import { ProgressComponent } from './progress.component';
 import { TooltipsComponent } from './tooltips.component';
 import { ChangepasswordComponent } from './../changepassword/changepassword.component';
-
+import { InfomationComponent } from './infomation/infomation.component';
 const routes: Routes = [
   {
     path: '',
@@ -107,7 +107,14 @@ const routes: Routes = [
         }
 
       },
-      
+       {
+         path : 'change-infomation',
+         component : InfomationComponent,
+         data : {
+           title : 'Change - infomation',
+         }
+       }
+
     ]
   }
 ];

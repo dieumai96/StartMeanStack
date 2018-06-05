@@ -30,6 +30,6 @@ export class TableUserComponent implements OnInit {
      return data.response.user_lists;
   }
   getInfoOne(){
-      this._router.navigate(['/base/infomation']);
+      this._router.navigate(['/base/change-infomation']);
   }
 }
