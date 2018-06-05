@@ -37,13 +37,14 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'register',
+    path: 'create-account',
     component: RegisterComponent,
+    canActivate: [AuthService],
     data: {
       title: 'Register Page'
     }
   },
-  
+
   {
     path: '',
     component: DefaultLayoutComponent,
