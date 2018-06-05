@@ -4,5 +4,9 @@ export class User {
     email : String ;
     level : Number;
     status : Number;
+    gender : Boolean;
+    avatar : String;
+    address : String;
+    hobbies : String;
     created_at : Date;
 }

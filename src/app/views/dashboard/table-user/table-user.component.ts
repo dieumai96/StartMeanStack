@@ -21,7 +21,6 @@ export class TableUserComponent implements OnInit {
   getAllUser() {
     this._listuserServie.getAllUser().subscribe(data => {
         this.user_lists = this.getInfoAll(data);
-        console.log(this.user_lists);
     }, err => {
       console.log(err);
     })
