@@ -1,37 +1,37 @@
 <div class="space-medium" style="background: #ffffff;padding-top: 20px">
   <div class="container">
-    <form [formGroup]="form" encType='multipart/form-data' method='post' (ngSubmit)="onRegister()">
+    <form  (ngSubmit)="onRegister()">
       <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
           <div class="form-group">
             <label class="control-label required" for="email"> Email
               <sup style="color:red">*</sup>
             </label>
-            <input formControlName="email" id="email" name="email" type="text" class="form-control" placeholder="Enter email">
+            <input [(ngModel)]="email" id="email" name="email" type="text" class="form-control" placeholder="Enter email">
           </div>
           <div class="form-group">
             <label class="control-label required" for="username"> Username
               <sup style="color:red">*</sup>
             </label>
-            <input formControlName="username" id="username" name="username" type="text" class="form-control" placeholder="Enter name">
+            <input [(ngModel)]="username" id="username" name="username" type="text" class="form-control" placeholder="Enter name">
           </div>
           <div class="form-group">
             <label class="control-label required" for="password"> Password
               <sup style="color:red">*</sup>
             </label>
-            <input formControlName="password" id="password" name="password" type="password" class="form-control" placeholder="Enter password">
+            <input [(ngModel)]="password" id="password" name="password" type="password" class="form-control" placeholder="Enter password">
           </div>
           <div class="form-group">
             <label class="control-label required" for="cpass"> Re-password
               <sup style="color:red">*</sup>
             </label>
-            <input formControlName="cpass" id="cpass" name="cpass" type="password" class="form-control" placeholder="Enter re-password">
+            <input [(ngModel)]="cpass" id="cpass" name="cpass" type="password" class="form-control" placeholder="Enter re-password">
           </div>
           <div class="form-group">
             <label class="control-label required" for="level"> Level
               <sup style="color:red">*</sup>
             </label>
-            <select formControlName="level" class="form-control" name="level" style="height: auto;color: #000">
+            <select [(ngModel)]="level" class="form-control" name="level" style="height: auto;color: #000">
               <option value="1" selected style="font-size: 1.2em" selected>Admin</option>
               <option value="2" style="font-size: 1.2em">Employee</option>
             </select>
@@ -42,7 +42,7 @@
             <label class="control-label required" for="gender"> Gender
               <sup style="color:red">*</sup>
             </label>
-            <select formControlName="gender" class="form-control" name="gender" style="height: auto;color: #000">
+            <select [(ngModel)]="gender" class="form-control" name="gender" style="height: auto;color: #000">
               <option value="true" selected style="font-size: 1.2em">Male</option>
               <option value="false" style="font-size: 1.2em">Female</option>
             </select>
@@ -51,13 +51,13 @@
             <label class="control-label required" for="address"> Address
               <sup style="color:red">*</sup>
             </label>
-            <input formControlName="address" id="address" name="address" type="text" class="form-control" placeholder="Enter address">
+            <input [(ngModel)]="address" id="address" name="address" type="text" class="form-control" placeholder="Enter address">
           </div>
           <div class="form-group">
             <label class="control-label required" for="hobbies"> Hobbies
               <sup style="color:red">*</sup>
             </label>
-            <input formControlName="hobbies" id="hobbies" name="hobbies" type="text" class="form-control" placeholder="Enter hobbies">
+            <input [(ngModel)]="hobbies" id="hobbies" name="hobbies" type="text" class="form-control" placeholder="Enter hobbies">
           </div>
           <div class="form-group">
             <label class="control-label required" for="avatar"> Avatar

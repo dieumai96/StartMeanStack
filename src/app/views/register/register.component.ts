@@ -12,40 +12,63 @@ import { NgForm } from '@angular/forms';
 export class RegisterComponent implements OnInit {
   public user: User = new User();
   public form: FormGroup;
+  public username = '';
+  public email = '';
+  public level = 1;
+  public status = 1;
+  public gender = true;
+  public avatar = null;
+  public address = '';
+  public hobbies = '';
+  public password = '';
+  public cpass = '';
   constructor(
     private _http: HttpClient,
     private _formBuilder: FormBuilder,
     private _addUserService: AddUserService,
   ) { }
   ngOnInit() {
-    this.createForm();
+    // this.createForm();
   }
   createForm() {
-    this.form = this._formBuilder.group({
-      email: [null, [Validators.required]],
-      username: [null, [Validators.required]],
-      password: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
-      cpass: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
-      level: [1],
-      status: [1],
-      gender: [true],
-      address: null,
-      hobbies: null,
-      userImg: null,
-    });
+    // this.form = this._formBuilder.group({
+    //   email: [null, [Validators.required]],
+    //   username: [null, [Validators.required]],
+    //   password: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
+    //   cpass: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
+    //   level: [1],
+    //   status: [1],
+    //   gender: [true],
+    //   address: null,
+    //   hobbies: null,
+    //   userImg: null,
+    // });
+
   }
   onRegister() {
-    console.log(this.form);
-    this._addUserService.onRegister(JSON.stringify(this.form.value)).subscribe(data => {
-      console.log(data);
-    }, err => {
-      console.log(err);
-    })
+    let form: FormData = new FormData();
+    form.append('email', this.email);
+    form.append('username', this.username);
+    form.append('password', this.password);
+    form.append('cpass', this.cpass);
+    form.append('level', this.level.toString());
+    form.append('status', this.status.toString());
+    form.append('hobbies', this.hobbies);
+    form.append('address', this.address);
+    form.append('avatar', this.avatar);
+    form.append('gender', this.gender.toString());
+
+    console.log(form);
+    // this._addUserService.onRegister(JSON.stringify(this.form.value)).subscribe(data => {
+    //   console.log(data);
+    // }, err => {
+    //   console.log(err);
+    // })
   }
   onFileChange(event) {
     if (event.target.files.length > 0) {
       let file = event.target.files[0];
-      this.form.get('userImg').setValue(file);
+      this.avatar = file;
     }
   }
 }
