@@ -9,7 +9,6 @@ import { TableUserComponent } from './table-user/table-user.component';
 import { StatisticalComponent } from './statistical/statistical.component';
 import { ListUserService } from './../../services/list-user.service';
 import {CommonModule} from '@angular/common';
-
 @NgModule({
   imports: [
     FormsModule,

@@ -7,6 +7,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { DefaultLayoutComponent } from './containers';
 import { P404Component } from './views/error/404.component';
@@ -18,6 +19,7 @@ import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
 import { AuthLoginService } from './services/auth-login.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AddUserService } from './services/add-user.service';
 const APP_CONTAINERS = [
   DefaultLayoutComponent
 ];
@@ -42,6 +44,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 @NgModule({
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     AppAsideModule,
     AppBreadcrumbModule.forRoot(),
@@ -62,12 +65,12 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     P500Component,
     LoginComponent,
     RegisterComponent,
-    
+
   ],
   providers: [{
     provide: LocationStrategy,
     useClass: HashLocationStrategy
-  }, UserService, AuthService, AuthLoginService],
+  }, UserService, AuthService, AuthLoginService, AddUserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
