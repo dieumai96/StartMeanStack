@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AddUserService {
-
+//  public form = new FormData
   constructor(
     private _http: HttpClient,
   ) { }

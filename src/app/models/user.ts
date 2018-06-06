@@ -5,7 +5,7 @@ export class User {
     level : Number;
     status : Number;
     gender : Boolean;
-    avatar : String;
+    avatar : File;
     address : String;
     hobbies : String;
     created_at : Date;

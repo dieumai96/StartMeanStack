@@ -1,6 +1,6 @@
 <div class="space-medium" style="background: #ffffff;padding-top: 20px">
   <div class="container">
-    <form [formGroup]="frmRegister">
+    <form [formGroup]="form" encType='multipart/form-data' method='post' (ngSubmit)="onRegister()">
       <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
           <div class="form-group">
@@ -63,11 +63,11 @@
             <label class="control-label required" for="avatar"> Avatar
               <sup style="color:red">*</sup>
             </label>
-            <input formControlName="avatar" id="avatar" name="avatar" type="file" class="form-control">
+            <input (change)="onFileChange($event)" id="avatar" name="avatar" type="file" class="form-control">
           </div>
           <div class="row" style="margin-top: 49px">
             <div class="col-md-12">
-              <button class="btn btn-danger form-control" style="background-color: #5cb85c;color:#ffffff;font-size: 1.2em;font-weight: bold" (click)="onCreateAccount()">CREATE ACCOUNT</button>
+              <button class="btn btn-danger form-control" style="background-color: #5cb85c;color:#ffffff;font-size: 1.2em;font-weight: bold" >CREATE ACCOUNT</button>
             </div>
           </div>
         </div>
